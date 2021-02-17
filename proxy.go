@@ -3,18 +3,16 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+	"github.com/taverok/proxymux/handler"
+	"github.com/taverok/proxymux/utils"
 	"log"
 	"net/http"
-	"proxy_multiplexer/handler"
-	"proxy_multiplexer/utils"
 )
-
-
 
 func main() {
 	args := utils.GetAppArgs
 	server := http.Server{
-		Addr: fmt.Sprintf(":%d", args.Port),
+		Addr:    fmt.Sprintf(":%d", args.Port),
 		Handler: handler.GetProxyHandler(),
 		// Disable HTTP/2.
 		TLSNextProto: make(map[string]func(*http.Server, *tls.Conn, http.Handler)),
