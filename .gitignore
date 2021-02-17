@@ -1,0 +1,14 @@
+.DS_Store
+
+/resources
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+
+### VS Code ###
+.vscode/
